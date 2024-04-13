@@ -17,11 +17,13 @@ body{
 
     a{ text-decoration: none;}
     nav{
-        position:   fixed;
-        z-index: 99;
+        position: fixed ;
+        z-index: 999;
         width: 100%;
         height: 100px;
         background: none;
+        display: flex;
+        align-items: center;
         font-family: var(--main-font);
         color: var(--primary-color);
         transition: all .25s linear;
@@ -81,6 +83,73 @@ body{
                 }
             }
         }
+        .burger {
+            position: absolute;
+            right: 30px;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .burger input {
+            display: none;
+        }
+        
+        .burger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary-color);
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .burger span:nth-of-type(1) {
+            top: 0px;
+            transform-origin: left center;
+        }
+        
+        .burger span:nth-of-type(2) {
+            top: 50%;
+            transform: translateY(-50%);
+            transform-origin: left center;
+        }
+        
+        .burger span:nth-of-type(3) {
+            top: 100%;
+            transform-origin: left center;
+            transform: translateY(-100%);
+        }
+        
+        .menu{
+            display: none;
+            position: absolute ;
+            top: -500%;
+            width: 100%;
+            transition: all .3s linear;
+            z-index: 99;
+            .container{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                button{
+                    width: 100%;
+                    height: 35px;
+                    border: 1px solid var(--head-color);
+                    text-transform: capitalize;
+                    font-family: var(--main-font);
+                    font-weight: 400;
+                }
+                button:nth-of-type(even){
+                    background: var(--primary-color);
+                }
+            }
+        }
     }
     .sticky{
         background: var(--primary-color);
@@ -98,6 +167,11 @@ body{
                 }
             }
         }
+        .burger{
+            span{
+                background: var(--text-color);
+            }
+        }
     }
     .home{
         font-family: var(--main-font);
@@ -105,6 +179,7 @@ body{
         width: 100%;
         min-height: 110vh;
         background: linear-gradient(90deg , #A757F9 , #5a67fa);
+        overflow: hidden;
         .content{
 
             color: var(--primary-color);
@@ -200,12 +275,14 @@ body{
             margin: 0 auto;
             color: var(--head-color);
             .first{
-                width: 750px;
+                width: 80%;
                 text-align: center;
                 margin: 0 auto;
                 padding: 50px 0;
+                position: relative;
                 .heading{
                     width: 100%;
+                    position: relative;
                     h2{
                         font-size: 40px;
                         font-weight: 700;
@@ -306,7 +383,7 @@ body{
                     font-family: var(--main-font);
                     font-size: 16px;
                     font-weight: 700;
-                    color: var(--head-color);
+                    color: var(--main-color);
                     margin: 0 0 25px 0;
 
                 }
@@ -392,3 +469,193 @@ body{
         a{text-decoration: none; color: var(--primary-color); &:hover{color: #B753F9;}}
     }
 }
+    @media screen and (max-width: 1000px) {
+        body{
+            nav{
+                .burger{
+                    display: block;
+                }
+                .space{
+
+                    .links{
+                        display: none;
+                    }
+                    
+                }
+                .burger , .menu{
+                    display: block;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 850px) {
+        body{
+            .how{
+                margin-top: 25px;
+            }
+            .home{
+                .content{
+                    .head{
+                        h1{
+                            line-height: normal;
+                            font-size: 40px;
+                            margin: 0 0 20px 0;
+                        }
+                    }
+                }
+            }
+            .about{
+                .content{
+                    .first{
+                        width: 100%;
+                        .heading{
+                            h2{
+                                font-size: 30px;
+                            }
+                            img{
+                                width: 90%;
+                                margin: 20px auto;
+                            }
+                        }
+                    }
+                    .tables{
+                        h5{
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 750px) {
+        body{
+            .home{
+                .content{
+                    .head{
+                        h1{
+                            width: 80%;
+                            line-height: normal;
+                            font-size: 32px;
+                            margin: 0 auto 20px auto;
+                        }
+                    }
+                    .body{
+                        p{
+                            line-height: normal;
+                            width: 70%;
+                            margin: auto;
+                            font-size: 13px;
+                            text-wrap: wrap;
+                        }
+                    }
+                }
+            }
+            .about{
+                .content{
+                    .first{
+                        width: 100%;
+                        .heading{
+                            h2{
+                                font-size: 30px;
+                            }
+                            img{
+                                width: 90%;
+                                margin: 20px auto;
+                            }
+                        }
+                    }
+                    .tables{
+                        h5{
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 550px) {
+        body{
+            .home{
+                .content{
+                    .head{
+                        h1{
+                            width: 75%;
+                            font-size: 28px;
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+    }
+    @media screen and (max-width: 400px) {
+        body{
+            .home{
+                .content{
+                    .head{
+                        h1{
+                            width: 50%;
+                            font-size: 25px;
+                        }
+                    }
+                    .body{
+                        p{
+                            width: 50%;
+                            font-size: 12px;
+                        }
+                    }
+                    
+                }
+            }
+            .about{
+                .content{
+                    .first{
+                        .heading{
+                            h2{
+                                font-size: 25px;
+                            }
+                        }
+                    }
+                    .tables{
+                        h5{
+                            font-size: 22.5px;
+                        }
+                    }
+                }
+            }
+            .faq{
+                .row{
+                    .side-heading{
+                        .heading{
+                            font-size: 30px;
+                        } 
+                    }
+                }
+            }
+            .end{
+                font-size: 14px;
+            }
+        }
+    }
+    @media screen and (max-width: 350px) {
+        body{
+            .home{
+                .content{
+                    .head{
+                        h1{
+                            width: 45%;
+                            font-size: 25px;
+                        }
+                    }
+                    .body{
+                        p{
+                            width: 40%;
+                            font-size: 11px;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
